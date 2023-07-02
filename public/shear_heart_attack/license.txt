@@ -1,0 +1,11 @@
+Model Information:
+* title:	Shear Heart Attack
+* source:	https://sketchfab.com/3d-models/shear-heart-attack-174d261a669c4db98a74895932a208ae
+* author:	luse (https://sketchfab.com/luse)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Shear Heart Attack" (https://sketchfab.com/3d-models/shear-heart-attack-174d261a669c4db98a74895932a208ae) by luse (https://sketchfab.com/luse) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

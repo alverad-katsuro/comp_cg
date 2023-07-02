@@ -8,7 +8,7 @@ const scene = new THREE.Scene();
 // Instanciar câmera
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 // Instanciar renderizador
-const renderer = new THREE.WebGLRenderer({antialias: true});
+const renderer = new THREE.WebGLRenderer({ antialias: true });
 //renderer.setClearColor(0xB0C4DE, 10)
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
@@ -31,13 +31,13 @@ camera.position.y = 20;
 camera.position.x = 20;
 
 let citie;
-modelLoader.load('public/sports_car_racing_moscow/scene.gltf', gltf => {
+modelLoader.load('sports_car_racing_moscow/scene.gltf', gltf => {
   citie = gltf.scene
   scene.add(citie)
   citie.traverse((o) => {
     if (o.isMesh) {
       const texture = o.material.map
-      o.material = new THREE.MeshPhongMaterial({map: texture})
+      o.material = new THREE.MeshPhongMaterial({ map: texture })
       o.castShadow = true
       o.receiveShadow = true
     }
@@ -51,13 +51,13 @@ modelLoader.load('public/sports_car_racing_moscow/scene.gltf', gltf => {
 
 
 let carro;
-modelLoader.load('public/hcr_race_car/scene.gltf', gltf => {
+modelLoader.load('hcr_race_car/scene.gltf', gltf => {
   carro = gltf.scene
   scene.add(carro)
   carro.traverse((o) => {
     if (o.isMesh) {
       const texture = o.material.map
-      o.material = new THREE.MeshPhongMaterial({map: texture})
+      o.material = new THREE.MeshPhongMaterial({ map: texture })
       o.castShadow = true
       o.receiveShadow = true
     }
@@ -72,31 +72,31 @@ modelLoader.load('public/hcr_race_car/scene.gltf', gltf => {
 
 // CUBO
 function CriarCubo(cor, largura, altura, profundidade) { // (cor, x, y, z)
-    let geometria = new THREE.BoxGeometry(largura, altura, profundidade);
-    let material = new THREE.MeshBasicMaterial({ map: loader.load("https://upload.wikimedia.org/wikipedia/commons/a/af/Bananas_%28Alabama_Extension%29.jpg") });
-    material.flatShading = true;
-    const cubo = new THREE.Mesh(geometria, material);
-    scene.add(cubo);
-    cubo.position.x = 0;
-    return cubo;
+  let geometria = new THREE.BoxGeometry(largura, altura, profundidade);
+  let material = new THREE.MeshBasicMaterial({ map: loader.load("https://upload.wikimedia.org/wikipedia/commons/a/af/Bananas_%28Alabama_Extension%29.jpg") });
+  material.flatShading = true;
+  const cubo = new THREE.Mesh(geometria, material);
+  scene.add(cubo);
+  cubo.position.x = 0;
+  return cubo;
 }
 
 // Cilindro
 function CriarCilindro(cor, raioCima, raioBaixo, altura) {
-    var geometria = new THREE.CylinderGeometry(raioCima, raioBaixo, altura, 20);
-    var material = new THREE.MeshBasicMaterial({ map: loader.load("https://upload.wikimedia.org/wikipedia/commons/a/af/Bananas_%28Alabama_Extension%29.jpg") })
-    const cilindro = new THREE.Mesh(geometria, material); scene.add(cilindro);
-    cilindro.position.x = 3;
-    return cilindro;
+  var geometria = new THREE.CylinderGeometry(raioCima, raioBaixo, altura, 20);
+  var material = new THREE.MeshBasicMaterial({ map: loader.load("https://upload.wikimedia.org/wikipedia/commons/a/af/Bananas_%28Alabama_Extension%29.jpg") })
+  const cilindro = new THREE.Mesh(geometria, material); scene.add(cilindro);
+  cilindro.position.x = 3;
+  return cilindro;
 }
 
 //Esfera
 function CriarEsfera(cor, raio, qtdSegLargura, qtdSegAltura) {
-    var geometria = new THREE.SphereGeometry(raio, qtdSegAltura, qtdSegAltura)
-    var material = new THREE.MeshBasicMaterial({ map: loader.load("https://media0.giphy.com/media/RjFaYc5ARSRtjVcMaa/giphy.gif") })
-    const esfera = new THREE.Mesh(geometria, material); scene.add(esfera);
-    esfera.position.x = 7;
-    return esfera;
+  var geometria = new THREE.SphereGeometry(raio, qtdSegAltura, qtdSegAltura)
+  var material = new THREE.MeshBasicMaterial({ map: loader.load("https://media0.giphy.com/media/RjFaYc5ARSRtjVcMaa/giphy.gif") })
+  const esfera = new THREE.Mesh(geometria, material); scene.add(esfera);
+  esfera.position.x = 7;
+  return esfera;
 }
 
 
@@ -116,13 +116,13 @@ esfera.position.y = 0;
 
 
 function animate() {
-    requestAnimationFrame(animate);
-    renderer.render(scene, camera);
-    cubo.rotation.z += 0.005;
-    cilindro.rotation.x += 0.005;
-    esfera.rotation.x += 0.02;
-    //esfera.translateX(0.05);
-    //esfera.translateY(0.08);
-    esfera.translateY(0.5);
+  requestAnimationFrame(animate);
+  renderer.render(scene, camera);
+  cubo.rotation.z += 0.005;
+  cilindro.rotation.x += 0.005;
+  esfera.rotation.x += 0.02;
+  //esfera.translateX(0.05);
+  //esfera.translateY(0.08);
+  esfera.translateY(0.5);
 }
 animate();
