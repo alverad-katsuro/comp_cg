@@ -1,3 +1,9 @@
+/**
+ * Alfredo Gabriel de Sousa Oliveira 202004940020
+ * Marcus Maciel Oliveira 202004940003
+ * https://youtu.be/ikR432MNoSQ
+ * https://github.com/alverad-katsuro/comp_cg
+ */
 import * as THREE from 'three';
 
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
@@ -338,7 +344,7 @@ esfera.position.y = 0;
 
 const keyboard = {};
 const maxSpeed = 4;
-const acceleration = 0.4;
+const acceleration = 0.01;
 const deceleration = 0.01;
 const resistance = 0.1;
 const turnSpeed = 0.1;
@@ -375,24 +381,6 @@ function keyUp(event) {
 document.addEventListener('keydown', keyDown);
 document.addEventListener('keyup', keyUp);
 
-// Create a text geometry
-var textGeometry = new THREE.TextGeometry("Hello, Three.js!", {
-  font: "helvetiker", // Font type (must be loaded separately)
-  size: 0.5, // Text size
-  height: 0.2, // Extrusion depth
-  curveSegments: 12, // Number of curved segments
-  bevelEnabled: true, // Enable bevel
-  bevelThickness: 0.03, // Bevel thickness
-  bevelSize: 0.02, // Bevel size
-  bevelSegments: 5, // Number of bevel segments
-});
-
-// Create a material for the text
-var material = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-
-// Create a text mesh
-var textMesh = new THREE.Mesh(textGeometry, material);
-scene.add(textMesh);
 
 function handleCarMovement() {
   const speed = carSpeed;
